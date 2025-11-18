@@ -1,0 +1,14 @@
+.profile_grid {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 15px;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sidebar {
+}

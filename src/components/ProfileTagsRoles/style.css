@@ -1,0 +1,27 @@
+.tags_and_roles {
+    box-sizing: border-box;
+    width: 100%;
+    background: #323232;
+    border: 1px solid #838383;
+    border-radius: 10px;
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+}
+
+.tags_name,
+.roles_name {
+    margin: 0;
+}
+
+.tags_name h3,
+.roles_name h3 {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    color: #FFFFFF;
+    margin: 0 0 8px 0;
+}

@@ -1,0 +1,20 @@
+.button_create_project {
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(90.05deg, #A2B6FD 0.01%, #A2FFB2 99.45%);
+    border: 1px solid #2D2D2D;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.button_create_project:hover {
+    background: none;
+    border: 4px solid linear-gradient(90.05deg, #A2B6FD 0.01%, #A2FFB2 99.45%);
+    color: white; 
+}
+
+.plus_icon {
+    margin-right: 10px;
+    margin-top: 5px;
+}

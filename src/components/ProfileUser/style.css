@@ -1,0 +1,10 @@
+.profile_user {
+    box-sizing: border-box;
+    width: 350px;
+    height: 450px;
+    background: #323232;
+    border: 1px solid #838383;
+    border-radius: 10px;
+}
+
+

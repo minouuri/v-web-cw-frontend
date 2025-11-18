@@ -1,0 +1,21 @@
+.roles_container {
+    display: contents; /* ! ВАЖНО — делает div прозрачным для flex */
+}
+
+.role {
+    display: inline-block;
+    margin-right: 8px;
+    margin-top: 4px;
+    padding: 4px 8px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: justify;
+    color: #000000;
+    height: 23px;
+    background: linear-gradient(90deg, #FFFFFF 0%, #A2B6FD 100%);
+    border-radius: 10px;
+    cursor: pointer;
+}

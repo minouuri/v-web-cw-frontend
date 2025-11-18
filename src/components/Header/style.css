@@ -1,0 +1,55 @@
+header {
+    height: 60px;
+    width: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background: linear-gradient(90.08deg, #323232 19.17%, #1A1A1A 99.97%);
+    border: 1px solid #595959;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 100px;
+    position: fixed;
+    z-index: 1000;
+}
+
+.left-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.right-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo_icon {
+    width: 70px;
+    height: 45px;
+    cursor: pointer;
+}
+
+.logo_name {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 29px;
+    background: linear-gradient(90deg, #87FFF1 0%, #FFFFFF 50%, #A4FFC3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    white-space: nowrap;
+    cursor: default;
+}
+
+.vertical-line {
+    width: 1px;
+    height: 30px;
+    background: #595959;
+}
