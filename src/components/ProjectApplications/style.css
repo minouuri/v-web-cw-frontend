@@ -1,0 +1,222 @@
+.applications_list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.application_card {
+    background: rgba(26, 26, 26, 0.6);
+    border: 1px solid #838383;
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.filter_group span {
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.application_card:hover {
+    border-color: #A2B6FD;
+    box-shadow: 0 4px 15px rgba(162, 182, 253, 0.1);
+}
+
+.app_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    gap: 15px;
+}
+
+.app_user_info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+}
+
+.user_info_row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 4px;
+}
+
+.user_name {
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.app_role {
+    color: #A2B6FD;
+    font-size: 12px;
+    font-weight: 500;
+    background: rgba(162, 182, 253, 0.1);
+    padding: 4px 10px;
+    border-radius: 12px;
+    border: 1px solid rgba(162, 182, 253, 0.2);
+    white-space: nowrap;
+}
+
+.app_date {
+    color: #B0B0B0;
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+.app_actions {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.btn_accept,
+.btn_reject {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 90px;
+}
+
+.btn_accept {
+    background: linear-gradient(90.05deg, #A2B6FD 0.01%, #A2FFB2 99.45%);
+    color: #1A1A1A;
+}
+
+.btn_accept:hover {
+}
+
+.btn_reject {
+    background: transparent;
+    color: #FF6B6B;
+    border: 1px solid #FF6B6B;
+}
+
+.btn_reject:hover {
+    background: #FF6B6B;
+    color: white;
+}
+
+.app_message {
+    color: #E0E0E0;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 15px 0;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+.app_footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.app_portfolio {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #B0B0B0;
+    font-size: 14px;
+    flex: 1;
+}
+
+.app_portfolio span {
+    color: #A2B6FD;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.app_portfolio a {
+    color: #A2FFB2;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    word-break: break-all;
+}
+
+.app_portfolio a:hover {
+    color: #A2B6FD;
+    text-decoration: underline;
+}
+
+.btn_view_profile {
+    padding: 10px 20px;
+    background: transparent;
+    border: 1px solid #838383;
+    border-radius: 8px;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.btn_view_profile:hover {
+    background: rgba(162, 182, 253, 0.1);
+    border-color: #A2B6FD;
+    color: #A2B6FD;
+}
+
+.app_status.pending {
+    background: rgba(255, 193, 7, 0.1);
+    color: #FFC107;
+    border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+.app_status.reviewed {
+    background: rgba(33, 150, 243, 0.1);
+    color: #2196F3;
+    border: 1px solid rgba(33, 150, 243, 0.3);
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    .app_header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .app_actions {
+        width: 100%;
+    }
+    
+    .btn_accept,
+    .btn_reject {
+        flex: 1;
+        padding: 10px;
+    }
+    
+    .app_footer {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+    
+    .app_portfolio {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    .btn_view_profile {
+        width: 100%;
+    }
+}

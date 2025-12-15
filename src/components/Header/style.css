@@ -1,0 +1,141 @@
+header {
+    height: 60px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: linear-gradient(90.08deg, #323232 19.17%, #1A1A1A 99.97%);
+    border-bottom: 1px solid #595959;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+}
+
+.header-content {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    box-sizing: border-box;
+    gap: 20px;
+}
+
+@media (max-width: 1100px) {
+    .header-content {
+        width: 90%;
+    }
+}
+
+@media (max-width: 900px) {
+    .header-content {
+        gap: 10px;
+    }
+}
+
+.left-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.right-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo_icon {
+    width: 60px;
+    height: 40px;
+    display: flex;
+}
+
+.logo_name {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    background: linear-gradient(90deg, #87FFF1 0%, #FFFFFF 50%, #A4FFC3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    white-space: nowrap;
+}
+
+.logo_container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding-right: 100px;
+}
+
+.vertical-line {
+    width: 1px;
+    height: 30px;
+    background: #595959;
+}
+
+/* --- MOBILE MENU BUTTON --- */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.mobile-menu-btn span {
+    width: 24px;
+    height: 2px;
+    background: #87FFF1;
+    border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-btn { display: flex; }
+}
+
+/* --- MOBILE MENU --- */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    max-width: 330px;
+    height: 100vh;
+    background: linear-gradient(180deg, #323232 0%, #1A1A1A 100%);
+    border-left: 1px solid #595959;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    animation: slideIn 0.3s ease;
+}
+
+.mobile-menu-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    height: 100%;
+}
+
+.mobile-auth-buttons {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-bottom: 10px;
+}

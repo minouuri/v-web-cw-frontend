@@ -1,0 +1,27 @@
+.tags_container {
+    display: contents;
+}
+
+.tag-name {
+    display: inline-block;
+    margin-right: 0px;
+    margin-top: 4px;
+    padding: 4px 8px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: justify;
+    color: #FFFFFF;
+    height: 20px;
+    border: 1px solid #A2FFB2;
+    background: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.tag-name:hover {
+    color: #000000;
+    background: linear-gradient(90deg, #FFFFFF 0%, #A2FFB2 100%);
+}

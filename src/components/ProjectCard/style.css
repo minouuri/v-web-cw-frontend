@@ -1,0 +1,97 @@
+.project-card {
+    padding: 20px;
+    background: #323232;
+    border: 1px solid #838383;
+    border-radius: 12px;
+    height: fit-content;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    border-color: #A2B6FD;
+    box-shadow: 0 4px 20px rgba(162, 182, 253, 0.1);
+}
+
+.project-header {
+    margin-left: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card h3 {
+    margin: 0 0 10px 0;
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.project-card h3:hover {
+    color: #A2FFB2;
+}
+
+.project-card-link {
+    text-decoration: none;
+}
+
+.tags_roles_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 16px;
+    min-height: 30px;
+}
+
+.description-container {
+    flex: 1;
+    background: rgba(20, 20, 20, 0.6);
+    border: 1px solid #2A2A2A;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #838383 rgba(20, 20, 20, 0.6);
+}
+
+.description-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.description-container::-webkit-scrollbar-track {
+    background: rgba(20, 20, 20, 0.6);
+    border-radius: 3px;
+}
+
+.description-container::-webkit-scrollbar-thumb {
+    background: #838383;
+    border-radius: 3px;
+}
+
+.description-container::-webkit-scrollbar-thumb:hover {
+    background: #A2B6FD;
+}
+
+.description-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: justify;
+    text-justify: inter-word;
+    color: #E0E0E0;
+    margin: 0;
+}
+
+.project-actions {
+    margin-top: auto;
+}

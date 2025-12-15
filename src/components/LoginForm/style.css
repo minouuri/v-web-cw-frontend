@@ -1,0 +1,207 @@
+.login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.login-form h1 {
+    margin: 0;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    background: linear-gradient(90deg, #87FFF1 0%, #FFFFFF 50%, #A4FFC3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.login-form h4 {
+    margin: 0 0 10px 0;
+    color: #B0B0B0;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    position: relative;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 14px 16px;
+    background: #1A1A1A;
+    border: 1px solid #838383;
+    border-radius: 8px;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.login-form input:focus {
+    outline: none;
+    border-color: #A2B6FD;
+    box-shadow: 0 0 0 2px rgba(162, 182, 253, 0.1);
+}
+
+.login-form input.error {
+    border-color: #FF6B6B;
+    background: rgba(255, 107, 107, 0.05);
+}
+
+.login-form input.error:focus {
+    border-color: #FF6B6B;
+    box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.1);
+}
+
+.login-form input:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.error-message {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #FF6B6B;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 8px;
+    background: rgba(255, 107, 107, 0.1);
+    border-radius: 4px;
+    animation: fadeIn 0.3s ease;
+}
+
+.error-icon {
+    font-size: 14px;
+}
+
+.submit-error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #FF6B6B;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 12px;
+    background: rgba(255, 107, 107, 0.1);
+    border: 1px solid rgba(255, 107, 107, 0.3);
+    border-radius: 8px;
+    animation: fadeIn 0.3s ease;
+    text-align: center;
+}
+
+.forgot-password {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    color: #A2B6FD;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 4px 8px;
+    margin-top: 4px;
+    transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+    color: #87a3ff;
+    text-decoration: underline;
+}
+
+.forgot-password:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(90.05deg, #A2B6FD 0.01%, #A2FFB2 99.45%);
+    border: none;
+    border-radius: 8px;
+    color: #1A1A1A;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.submit-btn:hover:not(:disabled) {
+    box-shadow: 0 4px 12px rgba(162, 182, 253, 0.3);
+}
+
+.submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #1A1A1A;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.registration-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+    padding-top: 20px;
+    border-top: 1px solid #404040;
+}
+
+.login-form h5 {
+    margin: 0;
+    color: #B0B0B0;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.registration-btn {
+    background: transparent;
+    color: #A2B6FD;
+    border: 1px solid #A2B6FD;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.registration-btn:hover:not(:disabled) {
+    background: rgba(162, 182, 253, 0.1);
+}
+
+.registration-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

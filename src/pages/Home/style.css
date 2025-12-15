@@ -1,0 +1,40 @@
+.cards_grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.status-message {
+    font-family: 'Inter';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 20px;
+    text-align: center;
+    gap: 10px;
+}
+
+.status-message.loading::after {
+    content: '';
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #A2FFB2;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.status-message.error {
+    color: #FF6B6B;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

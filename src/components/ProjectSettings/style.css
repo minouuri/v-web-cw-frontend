@@ -1,0 +1,226 @@
+.settings-tab {
+    background: #323232;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.settings-tab h3 {
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+    padding-bottom: 20px;
+}
+
+.settings-form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-group label {
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.settings-input,
+.settings-textarea {
+    width: 100%;
+    padding: 14px 16px;
+    background: rgba(26, 26, 26, 0.6);
+    border: 1px solid #838383;
+    border-radius: 8px;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.settings-input:focus,
+.settings-textarea:focus {
+    outline: none;
+    border-color: #A2B6FD;
+    box-shadow: 0 0 0 2px rgba(162, 182, 253, 0.1);
+}
+
+.settings-textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.roles-management {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.role-item {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.role-input {
+    flex: 1;
+    padding: 12px 16px;
+    background: rgba(26, 26, 26, 0.6);
+    border: 1px solid #838383;
+    border-radius: 8px;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.role-input:focus {
+    outline: none;
+    border-color: #A2B6FD;
+}
+
+.btn-remove-role {
+    width: 36px;
+    height: 36px;
+    background: rgba(255, 107, 107, 0.1);
+    border: 1px solid #FF6B6B;
+    border-radius: 8px;
+    color: #FF6B6B;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.btn-remove-role:hover {
+    background: rgba(255, 107, 107, 0.2);
+    transform: scale(1.05);
+}
+
+.btn-add-role {
+    align-self: flex-start;
+    padding: 10px 20px;
+    background: transparent;
+    border: 1px solid #A2B6FD;
+    border-radius: 8px;
+    color: #A2B6FD;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-add-role:hover {
+    background: rgba(162, 182, 253, 0.1);
+}
+
+.form-actions {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    padding-top: 25px;
+    border-top: 1px solid #404040;
+}
+
+.btn-save,
+.btn-cancel,
+.btn-delete {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-save {
+    background: linear-gradient(90.05deg, #A2B6FD 0.01%, #A2FFB2 99.45%);
+    color: #1A1A1A;
+}
+
+.btn-save:hover {
+    box-shadow: 0 4px 12px rgba(162, 182, 253, 0.3);
+}
+
+.btn-cancel {
+    background: #404040;
+    color: white;
+    border: 1px solid #838383;
+}
+
+.btn-cancel:hover {
+    background: #505050;
+    border-color: #A2B6FD;
+}
+
+.btn-delete {
+    background: transparent;
+    color: #FF6B6B;
+    border: 1px solid #FF6B6B;
+    margin-left: auto;
+}
+
+.btn-delete:hover {
+    background: rgba(255, 107, 107, 0.1);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .settings-tab {
+        padding: 20px;
+        max-width: 100%;
+    }
+    
+    .settings-tab h3 {
+        font-size: 20px;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .btn-save,
+    .btn-cancel,
+    .btn-delete {
+        width: 100%;
+    }
+    
+    .btn-delete {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .settings-tab {
+        padding: 15px;
+    }
+    
+    .role-item {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .btn-remove-role {
+        align-self: flex-end;
+        width: 100%;
+        max-width: 100px;
+    }
+}

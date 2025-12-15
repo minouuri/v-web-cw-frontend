@@ -1,0 +1,56 @@
+.buttons_project {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.button_bookmarks,
+.button_share {
+    width: 44px;
+    height: 44px;
+    background: #404040;
+    border: 1px solid #838383;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button_bookmarks:hover,
+.button_share:hover {
+    background: #505050;
+    border-color: #A2B6FD;
+}
+
+.button_bookmarks svg,
+.button_share svg {
+    transition: all 0.3s ease;
+}
+
+.button_bookmarks:hover svg path,
+.button_share:hover svg path {
+    stroke: #A2B6FD;
+}
+
+.button_respond {
+    flex: 1;
+    height: 44px;
+    background: #404040;
+    border: 1px solid #989898;
+    border-radius: 8px;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button_respond:hover {
+    background: linear-gradient(90.05deg, #A2B6FD 0.01%, #A2FFB2 99.45%);
+    color: #1A1A1A;
+    font-weight: 500;
+    border-color: transparent;
+}
