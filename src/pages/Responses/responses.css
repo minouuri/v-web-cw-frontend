@@ -1,0 +1,45 @@
+.responses-page {
+    max-width: 100%;
+    margin: 0 auto;
+    margin-right: 10px;
+    padding: 20px;
+    background: #323232;
+    border: 1px solid #838383;
+    border-radius: 12px;
+    font-family: 'Inter';
+}
+
+.page-header h2 {
+    color: white;
+    font-size: 20px;
+    margin: 0 0 10px 0;
+}
+
+.responses_tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #838383;
+}
+
+.tab {
+    padding: 10px 20px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: #B0B0B0;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab:hover {
+    color: white;
+}
+
+.tab.active {
+    color: #A2FFB2;
+    border-bottom-color: #A2FFB2;
+}

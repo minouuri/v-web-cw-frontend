@@ -1,0 +1,38 @@
+.bookmarks-page {
+    max-width: 100%;
+    margin: 0 auto;
+    margin-right: 10px;
+    padding: 20px;
+    background: #323232;
+    border: 1px solid #838383;
+    border-radius: 12px;
+    font-family: 'Inter';
+}
+
+.page-header-bookmarks h2 {
+    color: white;
+    font-size: 20px;
+    margin: 0 0 20px 0;
+}
+
+.tab {
+    padding: 10px 20px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: #B0B0B0;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab:hover {
+    color: white;
+}
+
+.tab.active {
+    color: #A2FFB2;
+    border-bottom-color: #A2FFB2;
+}

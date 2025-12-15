@@ -1,0 +1,67 @@
+.step-form h3 {
+    margin: 0 0 8px 0;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.step-description {
+    margin: 0 0 20px 0;
+    color: #B0B0B0;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    text-align: left;
+}
+
+.preview-content-create {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    text-align: left;
+}
+
+.preview-section-create {
+    background: #404040;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.preview-section-create h4 {
+    margin: 0 0 12px 0;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.preview-item-create {
+    margin-bottom: 8px;
+    color: #B0B0B0;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+}
+
+.preview-item-create strong {
+    color: white;
+}
+
+.preview-tags-create,
+.preview-roles-create {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.preview-tag-create,
+.preview-role-create {
+    background: rgba(162, 182, 253, 0.2);
+    color: #A2B6FD;
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    border: 1px solid rgba(162, 182, 253, 0.3);
+}

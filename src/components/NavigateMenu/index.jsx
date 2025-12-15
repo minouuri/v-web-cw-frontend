@@ -5,34 +5,46 @@ export default function NavigateMenu(){
     return(
         <div className="navigate_bar">
             <NavLink 
-                to="/profile"
-                className={({ isActive }) => 
-                    isActive ? 'nav-button active' : 'nav-button'}>
-                Профиль
-            </NavLink>
-            <NavLink 
                 to="/"
                 className={({ isActive }) => 
                     isActive ? 'nav-button active' : 'nav-button'}>
-                Лента
+                <span>Лента</span>
             </NavLink>
             <NavLink 
-                to="/activities"
+                to="/profile"
                 className={({ isActive }) => 
                     isActive ? 'nav-button active' : 'nav-button'}>
-                Активности
+                <span>Профиль</span>
             </NavLink>
             <NavLink 
                 to="/projects"
                 className={({ isActive }) => 
                     isActive ? 'nav-button active' : 'nav-button'}>
-                Проекты
+                <span>Мои проекты</span>
+            </NavLink>
+            <NavLink 
+                to="/responses"
+                className={({ isActive }) => 
+                    isActive ? 'nav-button active' : 'nav-button'}>
+                <span>Мои отклики</span>
+            </NavLink>
+            <NavLink 
+                to="/bookmarks"
+                className={({ isActive }) => 
+                    isActive ? 'nav-button active' : 'nav-button'}>
+                <span>Мои закладки</span>
+            </NavLink>
+            <NavLink 
+                to="/friends"
+                className={({ isActive }) => 
+                    isActive ? 'nav-button active' : 'nav-button'}>
+                <span>Настройки</span>
             </NavLink>
             <NavLink 
                 to="/about"
                 className={({ isActive }) => 
                     isActive ? 'nav-button active' : 'nav-button'}>
-                О нас
+                <span>О нас</span>
             </NavLink>
         </div>
     )    

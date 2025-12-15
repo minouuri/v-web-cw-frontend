@@ -1,10 +1,174 @@
-.profile_user {
-    box-sizing: border-box;
-    width: 350px;
-    height: 450px;
-    background: #323232;
-    border: 1px solid #838383;
-    border-radius: 10px;
+.profile_top {
+    display: flex;
+    gap: 20px;
+    align-items: stretch;
 }
 
+.profile_left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    flex: 0 0 220px;
+}
 
+.user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+}
+
+.user_badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(111, 112, 117, 0.322);
+    border: 1px solid rgba(225, 232, 255, 0.3);
+    border-radius: 20px;
+    padding: 6px 12px;
+    margin: 5px 0;
+}
+
+.badge {
+    background: linear-gradient(90.05deg, #A2B6FD 0.01%, #A2FFB2 99.45%);
+    color: #1A1A1A;
+    font-family: 'Inter';
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge_text {
+    color: #B0B0B0;
+    font-family: 'Inter';
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.join_date {
+    color: #888;
+    font-family: 'Inter';
+    font-size: 12px;
+    margin: 0;
+    text-align: center;
+}
+
+.profile_user {
+    box-sizing: border-box;
+    width: 100%;
+    background: #323232;
+    border: 1px solid #838383;
+    border-radius: 16px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.username {
+    color: white;
+    font-family: 'Inter';
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.user_email {
+    color: #B0B0B0;
+    font-family: 'Inter';
+    font-size: 14px;
+    margin: 0;
+}
+
+.stats_section {
+    flex: 1;
+}
+
+.stats_title {
+    color: white;
+    font-family: 'Inter';
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 15px 0;
+    text-align: left;
+    width: 100%;
+}
+
+.stats_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    width: 100%;
+}
+
+.stat_item {
+    background: rgba(26, 26, 26, 0.6);
+    border: 1px solid #404040;
+    border-radius: 8px;
+    padding: 12px 8px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.stat_number {
+    color: white;
+    font-family: 'Inter';
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.stat_label {
+    color: #B0B0B0;
+    font-family: 'Inter';
+    font-size: 11px;
+    line-height: 1.2;
+}
+
+.profile_actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-top: auto;
+}
+
+.edit_btn {
+    background: linear-gradient(90.05deg, #A2B6FD 0.01%, #A2FFB2 99.45%);
+    color: #1A1A1A;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    font-family: 'Inter';
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.edit_btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(162, 182, 253, 0.3);
+}
+
+.logout_btn {
+    background: transparent;
+    color: #FF6B6B;
+    border: 1px solid #FF6B6B;
+    border-radius: 8px;
+    padding: 10px;
+    font-family: 'Inter';
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.logout_btn:hover {
+    background: #FF6B6B;
+    color: white;
+}

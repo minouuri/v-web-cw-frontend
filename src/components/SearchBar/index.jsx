@@ -1,9 +1,24 @@
-import './style.css'
+import './style.css';
+import { useFilter } from '../../components/FilterContext';
 
-export default function SearchBar() {
+export default function SearchBar({ mobile }) {
+    const { setSearchQuery, sortBy, filters, handleFilterChange } = useFilter();
+
+    const onSearch = () => {
+        handleFilterChange(filters);
+    }
+
     return (
-        <div className="search_bar">
-            <input type="text" placeholder="    Поиск" className="search-input"></input>
+        <div className={`search_bar ${mobile ? 'mobile' : ''}`}>
+            <input
+                type="text"
+                placeholder="Проекты"
+                className="search-input"
+                onChange={e => setSearchQuery(e.target.value)}
+            />
+            <button className="search-btn" onClick={onSearch}>
+                Поиск
+            </button>
         </div>
-    )
+    );
 }

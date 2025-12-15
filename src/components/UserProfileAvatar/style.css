@@ -1,0 +1,17 @@
+.user_avatar {
+    font-family: 'Inter';
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 600;
+    
+    user-select: none;
+}
+
+.user_avatar--sm { width: 32px; height: 32px; font-size: 16px;} 
+.user_avatar--md { width: 40px; height: 40px; font-size: 24px;}
+.user_avatar--lg { width: 72px; height: 72px; font-size: 32px;}

@@ -10,7 +10,7 @@ export default function ButtonRegistration() {
     };
 
     return (
-        <button className="auth_button" onClick={handleClick}>
+        <button className="auth-button-registration" onClick={handleClick}>
             Зарегистрироваться
         </button>
     );

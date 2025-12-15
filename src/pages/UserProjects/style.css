@@ -1,0 +1,154 @@
+.user-projects-page {
+    padding: 0px;
+    margin: 0 auto;
+    height: fit-content;
+}
+
+.page-header-myproject {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.page-subtitle {
+    margin: 10px;
+    color: #B0B0B0;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    width: 500px;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+}
+
+.projects-section {
+    background: #323232;
+    border: 1px solid #838383;
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.section-header h2 {
+    margin: 0;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.project-count {
+    background: #404040;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
+.demo-notice {
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+.notice-content h3 {
+    margin: 0 0 8px 0;
+    color: white;
+    color: #A2B6FD;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.notice-content p {
+    margin: 0;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.projects-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.status-message {
+    font-family: 'Inter';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 20px;
+    text-align: center;
+    gap: 10px;
+}
+
+.status-message.loading::after {
+    content: '';
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #A2FFB2;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.status-message.error {
+    color: #FF6B6B;
+}
+
+@media (max-width: 768px) {
+    .user-projects-page {
+        padding: 16px;
+    }
+    
+    .page-header {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .user-info-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 24px;
+    }
+    
+    .user-stats {
+        justify-content: center;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-actions {
+        flex-wrap: wrap;
+    }
+    
+    .action-link,
+    .action-btn {
+        flex: 1;
+        min-width: 100px;
+    }
+}

@@ -11,16 +11,9 @@ export default function ProjectManagerPage() {
 
     const [project, setProject] = useState(null)
     const [applications, setApplications] = useState([])
+    const [members, setMembers] = useState([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
-
-    // TODO: заменить на реальные данные команды, когда появится API
-    const team = [
-        { id: 1, role: "Frontend-разработчик", user: "Иван Иванов", status: "filled", joinDate: "2025-01-10" },
-        { id: 2, role: "Backend-разработчик", user: null, status: "open" },
-        { id: 3, role: "UI/UX дизайнер", user: "Мария Сидорова", status: "filled", joinDate: "2025-01-12" },
-        { id: 4, role: "Аналитик", user: null, status: "open" }
-    ]
 
     useEffect(() => {
         const fetchData = async () => {
@@ -31,9 +24,12 @@ export default function ProjectManagerPage() {
                     throw new Error('Требуется авторизация')
                 }
 
-                const [projectRes, appsRes] = await Promise.all([
+                const [projectRes, appsRes, membersRes] = await Promise.all([
                     fetch(`http://localhost:5000/api/projects/${id}`),
                     fetch(`http://localhost:5000/api/projects/${id}/applications`, {
+                        headers: { Authorization: `Bearer ${token}` }
+                    }),
+                    fetch(`http://localhost:5000/api/projects/${id}/members`, {
                         headers: { Authorization: `Bearer ${token}` }
                     })
                 ])
@@ -45,12 +41,18 @@ export default function ProjectManagerPage() {
                     const err = await appsRes.json().catch(() => ({}))
                     throw new Error(err.error || 'Не удалось загрузить заявки')
                 }
+                if (!membersRes.ok) {
+                    const err = await membersRes.json().catch(() => ({}))
+                    throw new Error(err.error || 'Не удалось загрузить участников')
+                }
 
                 const projectData = await projectRes.json()
                 const appsData = await appsRes.json()
+                const membersData = await membersRes.json()
 
                 setProject(projectData)
                 setApplications(appsData)
+                setMembers(membersData)
             } catch (e) {
                 console.error('Ошибка загрузки данных менеджера проекта:', e)
                 setError(e.message)
@@ -132,8 +134,45 @@ export default function ProjectManagerPage() {
         }
     }
 
-    const handleRemoveMember = (memberId) => {
-        console.log('Удалить участника', memberId)
+    const handleRemoveMember = async (member) => {
+        try {
+            if (!member.userId) return
+
+            const token = localStorage.getItem('token')
+            if (!token) {
+                throw new Error('Требуется авторизация')
+            }
+
+            const res = await fetch(`http://localhost:5000/api/projects/${id}/members/remove`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    user_id: member.userId,
+                    role: member.role
+                })
+            })
+
+            if (!res.ok) {
+                const err = await res.json().catch(() => ({}))
+                throw new Error(err.error || 'Не удалось удалить участника')
+            }
+
+            const data = await res.json()
+
+            // обновляем список участников локально
+            setMembers(prev =>
+                prev.filter(m => !(m.user_id === member.userId && m.role_name === member.role))
+            )
+
+            if (data.reverted_application) {
+                setApplications(prev => [...prev, data.reverted_application])
+            }
+        } catch (e) {
+            alert(e.message)
+        }
     }
 
     const handleUpdateStatus = (newStatus) => {
@@ -141,24 +180,59 @@ export default function ProjectManagerPage() {
     }
 
     if (loading) {
-        return <div className="project_manager_page">Загрузка...</div>
+        return <div className="status-message loading">Загрузка...</div>
     }
 
     if (error || !project) {
-        return <div className="project_manager_page">Ошибка: {error || 'Проект не найден'}</div>
+        return <div className="status-message loading error">Ошибка: {error || 'Проект не найден'}</div>
     }
 
-    // Преобразуем заявки из API к формату, который ожидает компонент ProjectApplications
-    const viewApplications = applications.map(app => ({
-        id: app.id,
-        user: app.user_name,
-        role: app.role_name,
-        date: app.applied_at
-            ? new Date(app.applied_at).toLocaleDateString('ru-RU')
-            : '',
-        message: app.message,
-        status: app.status
-    }))
+    const viewApplications = applications
+        .filter(app => app.status === 'pending')
+        .map(app => ({
+            id: app.id,
+            userId: app.user_id,
+            user: app.user_name,
+            role: app.role_name,
+            date: app.applied_at
+                ? new Date(app.applied_at).toLocaleDateString('ru-RU')
+                : '',
+            message: app.message,
+            status: app.status
+        }))
+
+    const projectRoles = Array.from(new Set(project.required_roles || []))
+
+    const teamSlots = (() => {
+        const slots = []
+        const membersByRole = {}
+
+        members.forEach(m => {
+            const key = m.role_name
+            if (!membersByRole[key]) {
+                membersByRole[key] = []
+            }
+            membersByRole[key].push(m)
+        })
+
+        ;(project.required_roles || []).forEach((roleName, index) => {
+            const list = membersByRole[roleName] || []
+            const member = list.shift() || null
+
+            slots.push({
+                id: index,
+                role: roleName,
+                user: member ? member.user_name : null,
+                userId: member ? member.user_id : null,
+                isOwner: member ? member.is_owner : false,
+                joinDate: member && member.joined_at
+                    ? new Date(member.joined_at).toLocaleDateString('ru-RU')
+                    : null
+            })
+        })
+
+        return slots
+    })()
 
     return (
         <div className="project_manager_page">
@@ -182,7 +256,6 @@ export default function ProjectManagerPage() {
                 </div>
             </div>
 
-            {/* Навигация по вкладкам */}
             <nav className="manager_tabs">
                 <button 
                     className={`tab ${activeTab === 'applications' ? 'active' : ''}`}
@@ -194,7 +267,7 @@ export default function ProjectManagerPage() {
                     className={`tab ${activeTab === 'team' ? 'active' : ''}`}
                     onClick={() => setActiveTab('team')}
                 >
-                    Команда ({team.filter(m => m.status === 'filled').length})
+                    Команда ({teamSlots.filter(m => m.user).length})
                 </button>
                 <button 
                     className={`tab ${activeTab === 'settings' ? 'active' : ''}`}
@@ -204,11 +277,11 @@ export default function ProjectManagerPage() {
                 </button>
             </nav>
 
-            {/* Контент вкладок */}
             <div className="tab_content">
                 {activeTab === 'applications' && (
                     <ProjectApplications 
                         applications={viewApplications}
+                        roles={projectRoles}
                         onAccept={handleAccept}
                         onReject={handleReject}
                     />
@@ -216,13 +289,16 @@ export default function ProjectManagerPage() {
 
                 {activeTab === 'team' && (
                     <ProjectTeam 
-                        team={team}
+                        team={teamSlots}
                         onRemoveMember={handleRemoveMember}
                     />
                 )}
 
                 {activeTab === 'settings' && (
-                    <ProjectSettings />
+                    <ProjectSettings 
+                        project={project}
+                        onProjectUpdated={setProject}
+                    />
                 )}
             </div>
         </div>

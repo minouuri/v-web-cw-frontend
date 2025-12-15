@@ -1,0 +1,244 @@
+.apply-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.apply-modal {
+    background: #323232;
+    border: 1px solid #838383;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: white;
+    font-size: 16px;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: #B0B0B0;
+    font-size: 28px;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+    background: #404040;
+    color: white;
+}
+
+.modal-project-name {
+    padding: 20px;
+    font-size: 16px;
+    color: #A2FFB2;
+}
+
+.apply-modal form {
+    padding: 0 20px 20px;
+}
+
+.respond-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+    .respond-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+.respond-group {
+    margin-bottom: 0;
+}
+
+.respond-label {
+    display: block;
+    margin-bottom: 12px;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+}
+
+.roles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 10px;
+}
+
+.role-card {
+    background: #2A2A2A;
+    border: 1px solid #404040;
+    border-radius: 10px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.role-card:hover {
+    background: #353535;
+    border-color: #A2B6FD;
+    transform: translateY(-2px);
+}
+
+.role-card.selected {
+    background: rgba(162, 182, 253, 0.15);
+    border-color: #A2B6FD;
+    box-shadow: 0 4px 12px rgba(162, 182, 253, 0.1);
+}
+
+.role-checkbox {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #838383;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.role-card:hover .role-checkbox {
+    border-color: #A2B6FD;
+}
+
+.role-card.selected .role-checkbox {
+    background: #A2B6FD;
+    border-color: #A2B6FD;
+}
+
+.checkbox-inner {
+    width: 8px;
+    height: 8px;
+    background: #1A1A1A;
+    border-radius: 1px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.role-card.selected .checkbox-inner {
+    opacity: 1;
+}
+
+.role-text {
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.4;
+    word-break: break-word;
+}
+
+/* Стили для текстового поля */
+.respond-group textarea {
+    width: 100%;
+    height: 180px;
+    padding: 15px;
+    background: #2A2A2A;
+    border: 1px solid #404040;
+    border-radius: 10px;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    box-sizing: border-box;
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.5;
+    transition: all 0.3s ease;
+}
+
+.respond-group textarea::placeholder {
+    color: #666;
+    font-style: italic;
+}
+
+.respond-group textarea:focus {
+    outline: none;
+    border-color: #A2B6FD;
+    box-shadow: 0 0 0 2px rgba(162, 182, 253, 0.2);
+    background: #2F2F2F;
+}
+
+/* Кнопки */
+.modal-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #404040;
+}
+
+.btn-primary,
+.btn-secondary {
+    flex: 1;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(90.05deg, #A2B6FD 0.01%, #A2FFB2 99.45%);
+    color: #1A1A1A;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 6px 20px rgba(162, 182, 253, 0.4);
+}
+
+.btn-primary:focus:not(:active)::after {
+    animation: ripple 1s ease-out;
+}
+
+.btn-secondary {
+    background: #404040;
+    color: white;
+    border: 1px solid #838383;
+}
+
+.btn-secondary:hover {
+    background: #4A4A4A;
+    border-color: #A2B6FD;
+}

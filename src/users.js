@@ -24,8 +24,8 @@ export const usersData = [
     id: 2,
     username: "petr_petrov",
     email: "petr.petrov@example.com",
-    favorite_tags: ["React Native", "Firebase", "Health"],
-    roles: ["frontend-разработчик", "аналитик"],
+    user_tags: ["React Native", "Firebase", "Health"],
+    user_roles: ["frontend-разработчик", "аналитик"],
     authored_projects: [
       { name: "Мобильное приложение для фитнеса", status: "в разработке" }
     ],
@@ -44,8 +44,8 @@ export const usersData = [
     id: 3,
     username: "maria_sidorova",
     email: "maria.sidorova@example.com",
-    favorite_tags: ["TypeScript", "D3.js", "Data Visualization", "UI/UX"],
-    roles: ["backend-разработчик", "аналитик"],
+    user_tags: ["TypeScript", "D3.js", "Data Visualization", "UI/UX"],
+    user_roles: ["backend-разработчик", "аналитик"],
     authored_projects: [
       { name: "Аналитическая панель", status: "завершен" }
     ],
@@ -63,8 +63,8 @@ export const usersData = [
     id: 4,
     username: "aleksey_kozlov",
     email: "aleksey.kozlov@example.com",
-    favorite_tags: ["Next.js", "Stripe", "E-commerce"],
-    roles: ["frontend-разработчик", "backend-разработчик"],
+    user_tags: ["Next.js", "Stripe", "E-commerce"],
+    user_roles: ["frontend-разработчик", "backend-разработчик"],
     authored_projects: [
       { name: "Интернет-магазин", status: "в разработке" }
     ],

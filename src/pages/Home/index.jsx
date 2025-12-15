@@ -1,19 +1,32 @@
-
 import './style.css'
-
-import ButtonCreateProject from "../../components/ButtonCreateProject"
 import ProjectCard from "../../components/ProjectCard"
-import { projectsData } from '../../data';
+import ButtonCreateProject from "../../components/ButtonCreateProject"
+import { useFilter } from '../../components/FilterContext'
 
-export default function Home(){
-    return(
-        <div>
-            <ButtonCreateProject></ButtonCreateProject>
+export default function Home() {
+    const { sortedProjects } = useFilter();
+
+    if (!sortedProjects.length) {
+        return <div className="status-message loading">Загрузка проектов...</div>;
+    }
+
+    return (
+        <div className="home_container">
+            <ButtonCreateProject />
+
             <div className="cards_grid">
-                {projectsData.map(project => (
-                    <ProjectCard key={project.id} project={project}/>
-                ))}
+                {sortedProjects.length > 0 ? (
+                    sortedProjects.map(project => (
+                        <ProjectCard key={project.id} project={project} />
+                    ))
+                ) : (
+                    <div className="no_projects">
+                        <h3>Проекты не найдены</h3>
+                        <p>Попробуйте изменить фильтры или сортировку</p>
+                    </div>
+                )}
             </div>
         </div>
-    )
+    );
 }
+

@@ -10,7 +10,7 @@ export default function ButtonLogin() {
     };
 
     return (
-        <button className="auth_button" onClick={handleClick}>
+        <button className="auth-button-login" onClick={handleClick}>
             Войти
         </button>
     );

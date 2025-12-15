@@ -1,20 +1,60 @@
-.button_create_project {
+.button-container {
+    width: 100%;
+}
+
+.create-project-btn {
     width: 100%;
     height: 40px;
     background: linear-gradient(90.05deg, #A2B6FD 0.01%, #A2FFB2 99.45%);
-    border: 1px solid #2D2D2D;
+    border: 1px solid transparent;
     border-radius: 10px;
     font-size: 16px;
+    font-family: 'Inter';
+    font-weight: 500;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1A1A1A;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-.button_create_project:hover {
-    background: none;
-    border: 4px solid linear-gradient(90.05deg, #A2B6FD 0.01%, #A2FFB2 99.45%);
-    color: white; 
+.create-project-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 10px;
+    padding: 2px;
+    background: linear-gradient(90.05deg, #A2B6FD 0.01%, #A2FFB2 99.45%);
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.create-project-btn:hover {
+    background: #1A1A1A;
+    color: white;
+}
+
+.create-project-btn:hover::before {
+    opacity: 1;
 }
 
 .plus_icon {
-    margin-right: 10px;
-    margin-top: 5px;
+    margin-right: 8px;
+    transition: all 0.3s ease;
+}
+
+.create-project-btn:hover .plus_icon {
+    color: white;
+    transform: scale(1.1);
 }

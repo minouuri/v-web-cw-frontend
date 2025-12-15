@@ -1,21 +1,38 @@
 import './style.css'
-
-import './style.css'
+import { useState } from 'react'
+import CreateProjectForm from '../../components/CreateProjectForm'
 
 export default function ButtonCreateProject() {
+    const [showCreateForm, setShowCreateForm] = useState(false)
+
     return (
-        <div>
-            <button className="button_create_project">
-                <svg className='plus_icon' width="20" height="20" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path 
-                        d="M0.5 6H6M6 6H11.5M6 6V11.5M6 6V0.5" 
-                        stroke="black" 
-                        strokeLinecap="round" 
-                        strokeLinejoin="round" 
+        <div className="button-container">
+            <button
+                className="create-project-btn"
+                onClick={() => setShowCreateForm(true)}
+            >
+                <svg
+                    className="plus_icon"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                >
+                    <path
+                        d="M0.5 6H6M6 6H11.5M6 6V11.5M6 6V0.5"
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                     />
                 </svg>
                 Создать проект
             </button>
+
+            {showCreateForm && (
+                <CreateProjectForm
+                    onClose={() => setShowCreateForm(false)}
+                />
+            )}
         </div>
     )
 }

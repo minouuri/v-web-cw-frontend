@@ -1,25 +1,49 @@
+import { Link } from 'react-router-dom'
 import './style.css'
+import TagsName from '../TagsName'
+import RolesName from '../RolesName'
+import AuthorBadge from '../AuthorBadge'
+import MiniProjectButtons from '../MiniProjectButtons'
 
-import TagsName from '../TagsName';
-import RolesName from '../RolesName';
+export default function ProjectCard({ project }) {
+    const {
+        id,
+        name,
+        description,
+        tags,
+        required_roles,
+        author_username
+    } = project
 
-export default function ProjectCard({ project }) { 
-    const { name_of_project, author_of_project, tags_of_project, roles_in_the_project, description } = project; 
-    return ( 
-        <div className="project_card"> 
-            <h3>{name_of_project}</h3> 
-            <p className="author_text">{author_of_project}</p> 
+    return (
+        <div className="project-card">
+            <div className="project-header">
+                <Link to={`/project/${id}`} className="project-card-link">
+                    <h3>{name}</h3>
+                </Link>
+
+                <AuthorBadge author={author_username} showBadge />
+            </div>
+
             <div className="tags_roles_wrapper">
-                <TagsName tags={tags_of_project} />
-                <RolesName roles={roles_in_the_project} />
+                <TagsName tags={tags || []} />
+                <RolesName roles={required_roles || []} />
             </div>
-            <div className="description_container"> 
-                <p className="description_text">{description}</p>
+
+            <div className="description-container">
+                <p className="description-text">{description}</p>
             </div>
-            <div className='buttons_project'>
-                <button className='button_bookmarks'>В закладки</button>
-                <button className='button_respond'>Откликнутся</button>
+
+            <div className="project-actions">
+                <div className="project-actions">
+                    <MiniProjectButtons
+                        projectId={id}
+                        projectName={name}
+                        availableRoles={required_roles || []}
+                    />
+                </div>
             </div>
-        </div> 
-        ) 
-    } 
+        </div>
+    )
+}
+
