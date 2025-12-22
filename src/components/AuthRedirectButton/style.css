@@ -1,0 +1,16 @@
+
+
+/* Или вариант с градиентом */
+.auth-text-btn.gradient {
+    background: linear-gradient(90deg, #A2B6FD 0%, #A2FFB2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.auth-text-btn.gradient:hover {
+    background: linear-gradient(90deg, #87FFF1 0%, #A4FFC3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}

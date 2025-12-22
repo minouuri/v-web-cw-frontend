@@ -28,7 +28,7 @@ export default function ProjectApplications({ applications, roles = [], onAccept
 
     const handleViewProfile = (app) => {
         if (app.userId) {
-            navigate(`/profile?userId=${app.userId}`)
+            navigate(`/profile/${app.userId}`)
         } else {
             navigate('/profile')
         }
@@ -66,16 +66,10 @@ export default function ProjectApplications({ applications, roles = [], onAccept
                                 <div className="app_date">{app.date}</div>
                             </div>
                             <div className="app_actions">
-                                <button 
-                                    className="btn_accept"
-                                    onClick={() => handleAccept(app.id, app.role)}
-                                >
+                                <button className="btn_accept" onClick={() => handleAccept(app.id, app.role)}>
                                     Принять
                                 </button>
-                                <button 
-                                    className="btn_reject"
-                                    onClick={() => handleReject(app.id)}
-                                >
+                                <button className="btn_reject" onClick={() => handleReject(app.id)}>
                                     Отклонить
                                 </button>
                             </div>
@@ -84,10 +78,7 @@ export default function ProjectApplications({ applications, roles = [], onAccept
                         <div className="app_message">{app.message}</div>
                         
                         <div className="app_footer">
-                            <button
-                                className="btn_view_profile"
-                                onClick={() => handleViewProfile(app)}
-                            >
+                            <button lassName="btn_view_profile" onClick={() => handleViewProfile(app)}>
                                 Посмотреть профиль
                             </button>
                         </div>

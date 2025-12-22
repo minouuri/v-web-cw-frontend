@@ -7,7 +7,8 @@ export default function ProfileUser({ user }) {
     if (!user) return null
 
     const { user: currentUser } = useContext(AuthContext)
-    const isOwnProfile = currentUser?.user_id === user.id
+    const getUserId = usr => usr?.user_id ?? usr?.id;
+    const isOwnProfile = getUserId(currentUser) === getUserId(user)
 
     const {
         username,

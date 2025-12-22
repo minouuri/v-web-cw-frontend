@@ -43,7 +43,7 @@ export default function CreateProjectForm({ onClose, onSubmit }) {
                 team_size: formData.required_roles.length
             }
 
-            const res = await fetch("http://localhost:5000/api/add_project", {
+            const res = await fetch("http://155.212.247.183:5000/api/add_project", {
                 method: "POST",
                 headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
                 body: JSON.stringify(projectData)

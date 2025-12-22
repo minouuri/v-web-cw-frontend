@@ -32,7 +32,7 @@ export default function MiniProjectsInfo({ project, showAuthor = true, minimalVi
 
                 {showAuthor && (
                     <div className="author-meta mobile-only">
-                        <AuthorBadge author={author_of_project} />
+                        <AuthorBadge author={author_of_project} authorId={project.author_id} />
                     </div>
                 )}
             </div>
@@ -41,7 +41,7 @@ export default function MiniProjectsInfo({ project, showAuthor = true, minimalVi
                 <div className="mini-project-meta">
                     {showAuthor && (
                         <div className="author-meta desktop-only">
-                            <AuthorBadge author={author_of_project} />
+                            <AuthorBadge author={author_of_project} authorId={project.author_id} />
                         </div>
                     )}
                     <div className="date-status-meta">

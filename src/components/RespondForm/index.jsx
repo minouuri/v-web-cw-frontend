@@ -16,7 +16,7 @@ export default function RespondForm({ projectId, projectName, availableRoles, on
         setLoading(true)
         try {
             const token = localStorage.getItem('token')
-            const res = await fetch('http://localhost:5000/api/apply', {
+            const res = await fetch('http://155.212.247.183:5000/api/apply', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

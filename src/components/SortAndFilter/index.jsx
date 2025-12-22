@@ -1,6 +1,6 @@
 import './style.css'
 import { useState, useEffect } from 'react'
-import { useFilter } from '../../components/FilterContext'
+import { useFilter } from '../../Context/FilterContext'
 
 export default function SortAndFilter() {
     const { sortBy, filters, handleSortChange, handleFilterChange, clearAll } = useFilter();
@@ -9,11 +9,10 @@ export default function SortAndFilter() {
     const [tagSearch, setTagSearch] = useState('')
     const [roleSearch, setRoleSearch] = useState('')
 
-    // Загружаем все проекты и вычисляем все теги и роли
     useEffect(() => {
         const fetchProjects = async () => {
             try {
-                const res = await fetch("http://localhost:5000/api/projects")
+                const res = await fetch("http://155.212.247.183:5000/api/projects")
                 const data = await res.json()
 
                 const tagsSet = new Set()
@@ -76,7 +75,6 @@ export default function SortAndFilter() {
                 <h3>Фильтры и сортировка</h3>
             </div>
 
-            {/* Сортировка */}
             <div className="filter_section">
                 <div className="sort_options">
                     <button className={`sort_option ${sortBy === 'newest' ? 'active' : ''}`}
@@ -88,7 +86,6 @@ export default function SortAndFilter() {
                 </div>
             </div>
 
-            {/* Фильтр по тегам */}
             <div className="filter_section">
                 <div className="filter_header_with_search">
                     <h4>Технологии ({filters.tags.length} выбрано)</h4>
@@ -114,7 +111,6 @@ export default function SortAndFilter() {
                 </div>
             </div>
 
-            {/* Фильтр по ролям */}
             <div className="filter_section">
                 <div className="filter_header_with_search">
                     <h4>Роли ({filters.roles.length} выбрано)</h4>

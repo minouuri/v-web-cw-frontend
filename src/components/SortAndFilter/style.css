@@ -185,3 +185,24 @@
     color: white;
     border-color: #A2B6FD;
 }
+
+.search_results {
+    max-height: 100px;
+    overflow-y: auto;
+    margin-bottom: 8px;
+}
+
+.search_result_item {
+    padding: 6px 10px;
+    cursor: pointer;
+    border-radius: 6px;
+    color: #B0B0B0;
+    font-size: 12px;
+    font-family: 'Inter', sans-serif;
+    transition: background 0.2s;
+}
+
+.search_result_item:hover {
+    background: #505050;
+    color: #fff;
+}

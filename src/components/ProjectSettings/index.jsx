@@ -61,7 +61,7 @@ export default function ProjectSettings({ project, onProjectUpdated }) {
                 status: project.status
             }
 
-            const res = await fetch(`http://localhost:5000/api/projects/${project.id}`, {
+            const res = await fetch(`http://155.212.247.183:5000/api/projects/${project.id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

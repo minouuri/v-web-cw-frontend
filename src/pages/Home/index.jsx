@@ -1,7 +1,7 @@
 import './style.css'
 import ProjectCard from "../../components/ProjectCard"
 import ButtonCreateProject from "../../components/ButtonCreateProject"
-import { useFilter } from '../../components/FilterContext'
+import { useFilter } from '../../Context/FilterContext'
 
 export default function Home() {
     const { sortedProjects } = useFilter();

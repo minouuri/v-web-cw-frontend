@@ -20,7 +20,7 @@ export default function MiniProjectButtons({ projectId, projectName, availableRo
                 return
             }
 
-            const res = await fetch('http://localhost:5000/api/bookmarks', {
+            const res = await fetch('http://155.212.247.183:5000/api/bookmarks', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -1,8 +1,7 @@
 import './style.css'
 import { useState } from 'react'
 
-export default function RegistrationForm() {
-
+export default function RegistrationForm({ onSwitchToLogin }) {
     const [formData, setFormData] = useState({
         phone: '',
         username: '',
@@ -15,18 +14,17 @@ export default function RegistrationForm() {
     const [isLoading, setIsLoading] = useState(false)
     const [passwordVisible, setPasswordVisible] = useState(false)
     const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false)
+    const [registrationSuccess, setRegistrationSuccess] = useState(false)
 
     const validateForm = () => {
         const newErrors = {}
 
-        // Валидация телефона
         if (!formData.phone.trim()) {
             newErrors.phone = 'Введите номер телефона'
         } else if (!/^[\d+()\s-]{10,15}$/.test(formData.phone.replace(/\D/g, ''))) {
             newErrors.phone = 'Неверный формат номера телефона'
         }
 
-        // Валидация никнейма
         if (!formData.username.trim()) {
             newErrors.username = 'Введите никнейм'
         } else if (formData.username.length < 3) {
@@ -37,14 +35,12 @@ export default function RegistrationForm() {
             newErrors.username = 'Можно использовать только буквы, цифры и подчеркивание'
         }
 
-        // Валидация email
         if (!formData.email.trim()) {
             newErrors.email = 'Введите email'
         } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
             newErrors.email = 'Неверный формат email'
         }
 
-        // Валидация пароля
         if (!formData.password.trim()) {
             newErrors.password = 'Введите пароль'
         } else if (formData.password.length < 8) {
@@ -53,7 +49,6 @@ export default function RegistrationForm() {
             newErrors.password = 'Пароль должен содержать заглавные, строчные буквы и цифры'
         }
 
-        // Подтверждение пароля
         if (!formData.confirmPassword.trim()) {
             newErrors.confirmPassword = 'Подтвердите пароль'
         } else if (formData.password !== formData.confirmPassword) {
@@ -74,6 +69,7 @@ export default function RegistrationForm() {
 
         setIsLoading(true)
         setErrors({})
+        setRegistrationSuccess(false)
 
         try {
             const userData = {
@@ -82,7 +78,7 @@ export default function RegistrationForm() {
                 username: formData.username.trim(),
             }
 
-            const response = await fetch("http://localhost:5000/api/register", {
+            const response = await fetch("http://155.212.247.183:5000/api/register", {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
@@ -90,12 +86,13 @@ export default function RegistrationForm() {
                 body: JSON.stringify(userData)
             })
             const data = await response.json()
+            
             if (!response.ok) {
                 throw new Error(data.message || data.error || 'Ошибка регистрации')
             }
 
             console.log('Регистрация успешна:', data)
-
+            
             setFormData({
                 phone: '',
                 username: '',
@@ -103,7 +100,13 @@ export default function RegistrationForm() {
                 password: '',
                 confirmPassword: ''
             })
-            setErrors({ submit: 'Регистрация успешно завершена!' })
+
+            setTimeout(() => {
+                if (onSwitchToLogin) {
+                    onSwitchToLogin()
+                }
+            }, 500)
+
         } catch (error) {
             console.error('Ошибка регистрации:', error)
 
@@ -112,7 +115,7 @@ export default function RegistrationForm() {
             if (error.message.includes('already exists') ||
                 error.message.includes('уже существует') ||
                 error.message.includes('duplicate')) {
-                errorMessage = 'Пользователь с таким телефоном или email уже существует'
+                errorMessage = 'Пользователь с таким email уже существует'
             } else if (error.message.includes('password') ||
                 error.message.includes('пароль')) {
                 errorMessage = 'Пароль не соответствует требованиям'
@@ -135,7 +138,6 @@ export default function RegistrationForm() {
     const handleChange = (field) => (e) => {
         const value = e.target.value
 
-        // Автоматическое форматирование телефона
         if (field === 'phone') {
             const formattedValue = value.replace(/\D/g, '')
                 .replace(/^(\d{1})/, '+$1')
@@ -149,12 +151,10 @@ export default function RegistrationForm() {
             setFormData(prev => ({ ...prev, [field]: value }))
         }
 
-        // Очищаем ошибку при вводе
         if (errors[field]) {
             setErrors(prev => ({ ...prev, [field]: '' }))
         }
 
-        // Очищаем ошибку подтверждения пароля при изменении основного пароля
         if (field === 'password' && errors.confirmPassword) {
             setErrors(prev => ({ ...prev, confirmPassword: '' }))
         }
@@ -237,13 +237,25 @@ export default function RegistrationForm() {
             <div className="input-group">
                 <div className="password-header">
                     <label htmlFor="password">Пароль *</label>
-                    <button type="button" className="toggle-visibility" onClick={togglePasswordVisibility} tabIndex="-1" >
+                    <button 
+                        type="button" 
+                        className="toggle-visibility" 
+                        onClick={togglePasswordVisibility} 
+                        tabIndex="-1"
+                        disabled={isLoading}
+                    >
                         {passwordVisible ? 'Скрыть' : 'Показать'}
                     </button>
                 </div>
                 <div className="password-input-wrapper">
-                    <input id="password" type={passwordVisible ? "text" : "password"} placeholder="Минимум 8 символов" value={formData.password}
-                        onChange={handleChange('password')} className={errors.password ? 'error' : ''} disabled={isLoading}
+                    <input 
+                        id="password" 
+                        type={passwordVisible ? "text" : "password"} 
+                        placeholder="Минимум 8 символов" 
+                        value={formData.password}
+                        onChange={handleChange('password')} 
+                        className={errors.password ? 'error' : ''} 
+                        disabled={isLoading}
                     />
                 </div>
 
@@ -290,13 +302,25 @@ export default function RegistrationForm() {
             <div className="input-group">
                 <div className="password-header">
                     <label htmlFor="confirmPassword">Подтвердите пароль *</label>
-                    <button type="button" className="toggle-visibility" onClick={toggleConfirmPasswordVisibility} tabIndex="-1" >
+                    <button 
+                        type="button" 
+                        className="toggle-visibility" 
+                        onClick={toggleConfirmPasswordVisibility} 
+                        tabIndex="-1"
+                        disabled={isLoading}
+                    >
                         {confirmPasswordVisible ? 'Скрыть' : 'Показать'}
                     </button>
                 </div>
                 <div className="password-input-wrapper">
-                    <input id="confirmPassword" type={confirmPasswordVisible ? "text" : "password"} placeholder="Повторите ввод пароля" value={formData.confirmPassword}
-                        onChange={handleChange('confirmPassword')} className={errors.confirmPassword ? 'error' : ''} disabled={isLoading}
+                    <input 
+                        id="confirmPassword" 
+                        type={confirmPasswordVisible ? "text" : "password"} 
+                        placeholder="Повторите ввод пароля" 
+                        value={formData.confirmPassword}
+                        onChange={handleChange('confirmPassword')} 
+                        className={errors.confirmPassword ? 'error' : ''} 
+                        disabled={isLoading}
                     />
                 </div>
                 {errors.confirmPassword && (
@@ -308,9 +332,16 @@ export default function RegistrationForm() {
             </div>
 
             {errors.submit && (
-                <div className="submit-error">
-                    <span className="error-icon">⚠</span>
+                <div className={`submit-message ${registrationSuccess ? 'success' : 'error'}`}>
+                    <span className="message-icon">
+                        {registrationSuccess ? '✅' : '⚠'}
+                    </span>
                     {errors.submit}
+                    {registrationSuccess && (
+                        <div className="auto-redirect">
+                            Автоматический переход на страницу входа через 3 секунды...
+                        </div>
+                    )}
                 </div>
             )}
 
@@ -325,7 +356,12 @@ export default function RegistrationForm() {
 
             <div className="login-section">
                 <h5>Есть аккаунт?</h5>
-                <button type="button" className="login-btn" disabled={isLoading} >
+                <button 
+                    type="button" 
+                    className="login-btn" 
+                    disabled={isLoading}
+                    onClick={onSwitchToLogin}
+                >
                     Войти
                 </button>
             </div>

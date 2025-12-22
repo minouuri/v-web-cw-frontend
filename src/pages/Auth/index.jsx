@@ -33,7 +33,11 @@ export default function Auth() {
                 </div>
 
                 <div className="auth-content">
-                    {activeTab === 'login' ? <LoginForm /> : <RegistrationForm />}
+                    {activeTab === 'login' ? (
+                        <LoginForm onSwitchToRegister={() => setActiveTab('register')} />
+                    ) : (
+                        <RegistrationForm onSwitchToLogin={() => setActiveTab('login')} />
+                    )}
                 </div>
             </div>
         </div>

@@ -25,11 +25,11 @@ export default function ProjectManagerPage() {
                 }
 
                 const [projectRes, appsRes, membersRes] = await Promise.all([
-                    fetch(`http://localhost:5000/api/projects/${id}`),
-                    fetch(`http://localhost:5000/api/projects/${id}/applications`, {
+                    fetch(`http://155.212.247.183:5000/api/projects/${id}`),
+                    fetch(`http://155.212.247.183:5000/api/projects/${id}/applications`, {
                         headers: { Authorization: `Bearer ${token}` }
                     }),
-                    fetch(`http://localhost:5000/api/projects/${id}/members`, {
+                    fetch(`http://155.212.247.183:5000/api/projects/${id}/members`, {
                         headers: { Authorization: `Bearer ${token}` }
                     })
                 ])
@@ -73,7 +73,7 @@ export default function ProjectManagerPage() {
                 throw new Error('Требуется авторизация')
             }
 
-            const res = await fetch(`http://localhost:5000/api/applications/${applicationId}/decision`, {
+            const res = await fetch(`http://155.212.247.183:5000/api/applications/${applicationId}/decision`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -107,7 +107,7 @@ export default function ProjectManagerPage() {
                 throw new Error('Требуется авторизация')
             }
 
-            const res = await fetch(`http://localhost:5000/api/applications/${applicationId}/decision`, {
+            const res = await fetch(`http://155.212.247.183:5000/api/applications/${applicationId}/decision`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -143,7 +143,7 @@ export default function ProjectManagerPage() {
                 throw new Error('Требуется авторизация')
             }
 
-            const res = await fetch(`http://localhost:5000/api/projects/${id}/members/remove`, {
+            const res = await fetch(`http://155.212.247.183:5000/api/projects/${id}/members/remove`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

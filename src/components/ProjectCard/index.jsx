@@ -22,7 +22,7 @@ export default function ProjectCard({ project }) {
                     <h3>{name}</h3>
                 </Link>
 
-                <AuthorBadge author={author_username} showBadge />
+                <AuthorBadge author={author_username} authorId={project.author_id} showBadge />
             </div>
 
             <div className="tags_roles_wrapper">

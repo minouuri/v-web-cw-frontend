@@ -1,5 +1,5 @@
 import './style.css';
-import { useFilter } from '../../components/FilterContext';
+import { useFilter } from '../../Context/FilterContext';
 
 export default function SearchBar({ mobile }) {
     const { setSearchQuery, sortBy, filters, handleFilterChange } = useFilter();

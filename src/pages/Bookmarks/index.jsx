@@ -13,7 +13,7 @@ export default function Bookmarks() {
                 const token = localStorage.getItem('token')
                 if (!token) throw new Error('Требуется авторизация')
 
-                const res = await fetch('http://localhost:5000/api/bookmarks', {
+                const res = await fetch('http://155.212.247.183:5000/api/bookmarks', {
                     headers: { Authorization: `Bearer ${token}` }
                 })
 

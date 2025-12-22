@@ -15,14 +15,14 @@ export default function UserProjects() {
                 const token = localStorage.getItem('token')
                 if (!token) throw new Error('Требуется авторизация')
 
-                const profileRes = await fetch('http://localhost:5000/api/profile', {
+                const profileRes = await fetch('http://155.212.247.183:5000/api/profile', {
                     headers: { 'Authorization': `Bearer ${token}` }
                 })
                 if (!profileRes.ok) throw new Error('Не удалось получить профиль')
                 const userData = await profileRes.json()
                 setCurrentUser(userData)
 
-                const projectsRes = await fetch('http://localhost:5000/api/projects', {
+                const projectsRes = await fetch('http://155.212.247.183:5000/api/projects', {
                     headers: { 'Authorization': `Bearer ${token}` }
                 })
                 if (!projectsRes.ok) throw new Error('Не удалось загрузить проекты')

@@ -3,9 +3,20 @@ import RoleSelector from '../RoleSelector'
 import './stepform.css'
 
 export default function Step1Form({ formData, updateFormData, onNext, onClose }) {
+    const requiredFilled = (
+        formData.name &&
+        formData.description &&
+        formData.start_date &&
+        formData.duration &&
+        formData.contact_info &&
+        formData.difficulty &&
+        Array.isArray(formData.tags) && formData.tags.length > 0 &&
+        Array.isArray(formData.required_roles) && formData.required_roles.length > 0
+    );
+
     const handleFormSubmit = (e) => {
-        e.preventDefault()
-        if (formData.name && formData.description) onNext()
+        e.preventDefault();
+        if (requiredFilled) onNext();
     }
 
     return (
@@ -95,7 +106,7 @@ export default function Step1Form({ formData, updateFormData, onNext, onClose })
 
             <div className="form-actions">
                 <button type="button" className="btn-secondary" onClick={onClose}>Отмена</button>
-                <button type="submit" className="btn-primary" disabled={!formData.name || !formData.description}>Продолжить →</button>
+                <button type="submit" className="btn-primary" disabled={!requiredFilled}>Продолжить →</button>
             </div>
         </form>
     )

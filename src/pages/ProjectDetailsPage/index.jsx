@@ -15,7 +15,7 @@ export default function ProjectDetailsPage() {
     useEffect(() => {
         const fetchProject = async () => {
             try {
-                const res = await fetch(`http://localhost:5000/api/projects/${id}`)
+                const res = await fetch(`http://155.212.247.183:5000/api/projects/${id}`)
                 if (!res.ok) throw new Error('Проект не найден')
                 const data = await res.json()
                 setProject(data)
@@ -40,7 +40,7 @@ export default function ProjectDetailsPage() {
                 throw new Error('Требуется авторизация')
             }
 
-            const res = await fetch('http://localhost:5000/api/bookmarks', {
+            const res = await fetch('http://155.212.247.183:5000/api/bookmarks', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -80,7 +80,7 @@ export default function ProjectDetailsPage() {
                     <div>
                         <h1 className="project-title">{project.name}</h1>
                         <div className="author-info">
-                            <AuthorBadge author={project.author_username} showBadge />
+                            <AuthorBadge author={project.author_username} authorId={project.author_id} showBadge />
                             <span className="created-date">
                                 Создан: {project.created_at ? new Date(project.created_at).toLocaleDateString('ru-RU') : '—'}
                             </span>

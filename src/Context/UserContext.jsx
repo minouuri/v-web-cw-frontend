@@ -26,8 +26,8 @@ export const UserProvider = ({ children }) => {
             const userId = params.get('userId')
 
             const url = userId
-                ? `http://localhost:5000/api/profile/${userId}`
-                : `http://localhost:5000/api/profile`
+                ? `http://155.212.247.183:5000/api/profile/${userId}`
+                : `http://155.212.247.183:5000/api/profile`
 
             const res = await fetch(url, {
                 headers: { Authorization: `Bearer ${token}` }

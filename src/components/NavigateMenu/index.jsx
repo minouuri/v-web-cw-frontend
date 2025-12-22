@@ -34,18 +34,6 @@ export default function NavigateMenu(){
                     isActive ? 'nav-button active' : 'nav-button'}>
                 <span>Мои закладки</span>
             </NavLink>
-            <NavLink 
-                to="/friends"
-                className={({ isActive }) => 
-                    isActive ? 'nav-button active' : 'nav-button'}>
-                <span>Настройки</span>
-            </NavLink>
-            <NavLink 
-                to="/about"
-                className={({ isActive }) => 
-                    isActive ? 'nav-button active' : 'nav-button'}>
-                <span>О нас</span>
-            </NavLink>
         </div>
     )    
 }

@@ -1,9 +1,9 @@
 import './style.css'
-import { useState, useContext } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { AuthContext } from '../../Context/AuthContext'
 import { useNavigate } from 'react-router-dom'
 
-export default function LoginForm() {
+export default function LoginForm({ onSwitchToRegister }) {
     const { login } = useContext(AuthContext)
     const navigate = useNavigate()
     const [email, setEmail] = useState('')
@@ -34,7 +34,7 @@ export default function LoginForm() {
         setErrors({})
 
         try {
-            const response = await fetch("http://localhost:5000/api/login", {
+            const response = await fetch("http://155.212.247.183:5000/api/login", {
                 method: "POST",
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email: email.trim(), password })
@@ -107,7 +107,12 @@ export default function LoginForm() {
 
             <div className="registration-section">
                 <h5>Нет аккаунта?</h5>
-                <button type="button" className="registration-btn" disabled={isLoading} onClick={() => console.log('Переход к регистрации')}>
+                <button 
+                    type="button" 
+                    className="registration-btn" 
+                    disabled={isLoading} 
+                    onClick={onSwitchToRegister}
+                >
                     Зарегистрироваться
                 </button>
             </div>
